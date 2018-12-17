@@ -1,0 +1,3 @@
+---
+wordpress_packages:
+  - name: wordpress

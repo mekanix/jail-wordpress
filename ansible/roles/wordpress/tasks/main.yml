@@ -1,0 +1,14 @@
+---
+- name: install wordpress packages
+  with_items: "{{ wordpress_packages }}"
+  package:
+    name: "{{ item.name }}"
+  notify:
+    - restart php fpm
+
+- name: enable php fpm
+  template:
+    src: php_fpm.j2
+    dest: /etc/rc.conf.d/php_fpm
+  notify:
+    - restart php fpm
