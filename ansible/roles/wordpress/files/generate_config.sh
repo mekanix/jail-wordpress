@@ -12,6 +12,7 @@ define('DB_PASSWORD', 'password_here');
 define('DB_HOST', 'localhost');
 define('DB_CHARSET', 'utf8');
 define('DB_COLLATE', '');
+define('FS_METHOD', 'direct');
 
 EOF
 fetch -q -o - https://api.wordpress.org/secret-key/1.1/salt/ >>"${CONFIG_FILE}"

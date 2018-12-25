@@ -3,3 +3,8 @@
   service:
     name: php-fpm
     state: restarted
+
+- name: restart secadm rules
+  service:
+    name: secadm
+    state: restarted
