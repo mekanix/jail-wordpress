@@ -12,3 +12,9 @@
     dest: /etc/rc.conf.d/php_fpm
   notify:
     - restart php fpm
+
+- name: copy generate_config script
+  copy:
+    src: generate_config.sh
+    dest: /usr/local/bin/generate_config.sh
+    mode: 0700
