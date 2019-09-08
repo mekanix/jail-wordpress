@@ -18,28 +18,3 @@
     src: generate_config.sh
     dest: /usr/local/bin/generate_config.sh
     mode: 0700
-
-- stat: path=/etc/hbsd-update.conf
-  register: hbsd_update
-
-- name: install secadm
-  package:
-    name: secadm
-  when: hbsd_update.stat.exists == True
-  notify:
-    - restart secadm rules
-
-- name: configure secadm
-  template:
-    src: secadm.rules.j2
-    dest: /usr/local/etc/secadm.rules
-  when: hbsd_update.stat.exists == True
-  notify:
-    - restart secadm rules
-
-- name: enable secadm
-  template:
-    src: secadm.j2
-    dest: /etc/rc.conf.d/secadm
-  notify:
-    - restart secadm rules
