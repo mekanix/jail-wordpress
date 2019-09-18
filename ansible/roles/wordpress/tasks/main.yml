@@ -18,3 +18,10 @@
     src: generate_config.sh
     dest: /usr/local/bin/generate_config.sh
     mode: 0700
+
+- name: set permissions
+  file:
+    path: /usr/local/www/wordpress
+    owner: www
+    group: www
+    mode: 0755
