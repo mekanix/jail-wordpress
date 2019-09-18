@@ -1,3 +1,8 @@
 ---
 wordpress_packages:
   - name: wordpress
+
+wordpress_dirs:
+  - name: ""
+  - name: "/wp-content"
+  - name: "/wp-content/plugins"

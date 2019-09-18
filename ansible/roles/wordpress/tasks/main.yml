@@ -20,8 +20,9 @@
     mode: 0700
 
 - name: set permissions
+  with_items: "{{ wordpress_dirs }}"
   file:
-    path: /usr/local/www/wordpress
+    path: "/usr/local/www/wordpress{{ item.name }}"
     owner: www
     group: www
     mode: 0755
