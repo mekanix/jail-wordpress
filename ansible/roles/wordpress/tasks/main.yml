@@ -6,12 +6,19 @@
   notify:
     - restart php fpm
 
+- name: configure php-fpm
+  template:
+    src: www.conf.j2
+    dest: /usr/local/etc/php-fpm.d/www.conf
+  notify:
+    - restart php-fpm
+
 - name: enable php fpm
   template:
     src: php_fpm.j2
     dest: /etc/rc.conf.d/php_fpm
   notify:
-    - restart php fpm
+    - restart php-fpm
 
 - name: copy generate_config script
   copy:
