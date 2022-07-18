@@ -4,7 +4,7 @@
   package:
     name: "{{ item.name }}"
   notify:
-    - restart php fpm
+    - restart php-fpm
 
 - name: configure php-fpm
   template:
